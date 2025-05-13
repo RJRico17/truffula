@@ -15,6 +15,8 @@ RJ
 Just googled it an an enum is something in java that never changes. Its let a const variable in javascript where it does not change. So in `ConsoleColor.java` we define all of the colors we want use and since they never change we use an enum. We also have a couple of constructors. We can change the console text with consolecolor(String code) with the code being our enum colors. We can get the code of the color with getCode(). We can also get the code as a string by overwriting toString().
 
 ## ColorPrinter.java / ColorPrinterTest.java
+RJ
+`ColorPrinter.java` allows use to define what color to use to print console messages. Colors can be changed or kept depnding on our needs. ColorPrinter is an object, we pass in System.out, we use setCurrentColor to set color of System.out messages, then we print out the messages using the object name and println("Hello World"). We have multiple methods such as getCurrentColor(), setCurrentColor(takes param color), println("message") this is overwriting a already existing method. We also make sure to reset the color? Yes next method we reset the color if needed, if we println("hello") WITHOUT specifying reset boolean, will always be true. also print("msg") without making new line, also boolean always set to true. Need to implement print("msg") where we reset the color. We also construct colorPrinter objects with default white color and specified printStream.
 
 ## TruffulaOptions.java / TruffulaOptionsTest.java
 
