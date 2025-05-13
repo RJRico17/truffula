@@ -14,6 +14,9 @@ It's the main app of our code that will be running the main method. Like RJ said
 RJ 
 Just googled it an an enum is something in java that never changes. Its let a const variable in javascript where it does not change. So in `ConsoleColor.java` we define all of the colors we want use and since they never change we use an enum. We also have a couple of constructors. We can change the console text with consolecolor(String code) with the code being our enum colors. We can get the code of the color with getCode(). We can also get the code as a string by overwriting toString().
 
+Abdi
+After googling, I can sort of relate enums to JavaScript consts in a way - because enums are constant. They don't change. It also explains ANSI codes wll be implemented to assign the colors. It defines the different colors as enums. Then at the very bottom of the file, there's constructors. ConsoleColor(Strnig code) changes the console text color to the given enum color using ANSI. getCode() simply returns the ANSI code of a given string while toString() returns our enum code as a String.
+
 ## ColorPrinter.java / ColorPrinterTest.java
 
 ## TruffulaOptions.java / TruffulaOptionsTest.java
