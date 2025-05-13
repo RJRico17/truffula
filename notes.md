@@ -7,7 +7,8 @@ PLEASE MAKE FREQUENT COMMITS AS YOU FILL OUT THIS FILE.
 RJ
 Looking like `app.java` is showing us all the different uses Truffula has for us. Its almost like a page for isntructions on how to use Truffula like a user guide. It also describes how Truffula works and what it does, its like a documentation. It also shows you the main method in where we actually run Truffula.
 
-
+Abdi
+It's the main app of our code that will be running the main method. Like RJ said, it's a like a set of instructions that gives us a run down of how the overall app should be behaving. Features like if order of the flags (-nc & -h) are important and how the path will need to work when calling it on the command line.
 
 ## ConsoleColor.java
 
