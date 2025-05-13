@@ -10,6 +10,8 @@ Looking like `app.java` is showing us all the different uses Truffula has for us
 
 
 ## ConsoleColor.java
+RJ 
+Just googled it an an enum is something in java that never changes. Its let a const variable in javascript where it does not change. So in `ConsoleColor.java` we define all of the colors we want use and since they never change we use an enum. We also have a couple of constructors. We can change the console text with consolecolor(String code) with the code being our enum colors. We can get the code of the color with getCode(). We can also get the code as a string by overwriting toString().
 
 ## ColorPrinter.java / ColorPrinterTest.java
 
