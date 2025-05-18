@@ -30,16 +30,18 @@ As for the ColorPrinter test, this files job is to run tests for our ColorPrinte
 RJ 
 `TruffulaOptions.java` is like setting up the different parameters we can have when we call truffula for example we use the arguments `-h` or `-nc` which allows us to see hidden files or print with no color. We also take in a path argument of either what folder we want to explore, or where we want to explore relative to where our terminal is viewing in. It also gives us examples of different ways to construct valid and invalid truffula calls. We have a truffula constructor with private values of root, showhidden, and usecolor. getRoot() returns the root of the directory. we also have a toString() method that overwrites the existing and shows the configged arugments. We also have boolean methods isuseColor() and isShowHidden() which returns whether or not we show hidden files or use color by returning true or not. Towards the end there is a place where we have to implement what argument is passed to use via the console and we have to process it by checking if we use those `-h` or `-nc` flags. `TruffulaOptions.java` tests if we are getting the correct paths or files showing depending on what we call, also asserts if no color is shown if we define it to or not.
 
-<<<<<<< HEAD
-=======
 Abdi
 I quickly noticed the documentation for TruffulaOptions.java is similar, if not some parts the exact same. It reiterates what flags are, a path is and what the expected behavior is. This file has several methods that each serve a specfic actions. getRoot() gets the root directory of our desired path (basically where it starts). isShowHidden() returns true if the hidden files should be displayed and false if not. toString() returns a string of the details of our selected options. isUseColor() returns true if a color should be used and if it's false (a color shouldn't be used), all the output is white. There are 2 constrcutors at the bottom, one already implemented and one we will have to implement (TruffulaOptions). TruffulaOptions job is to make an object based on our given arugments (ex. if hidden files will be shown, if color should be used).
 
 As for the TruffulaOptionsTest file,  
 
 
->>>>>>> 198a2b2d7ed9e29175aaa2ef1bcf2c0c7717e707
 ## TruffulaPrinter.java / TruffulaPrinterTest.java
 
+RJ
+Looks like `TruffulaPrinter.java` has constructors that allow us to define different options we want for truffula regarding it's actions. Looks like we can define a specific instance of TruffulaPrinter with different options such as one being a default and others where you can define the options you want to give it and will create a specific object with those options. In wave 4 looks like we will implement `printTree()` in this file which looks like will do all the heavy work. `TruffulaPrinterTest.java` looks like it creates a bunch of mock files that mimic a directory so that we can test out our printer, most likely should implement alot of different test cases where we have empty folders full folders no folders all files etc.
 
 ## AlphabeticalFileSorter.java
+
+RJ
+Oh W this one is pretty simple it just takes an array of files and lists them all in alphabetical order.
