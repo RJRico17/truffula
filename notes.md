@@ -24,10 +24,21 @@ RJ
 Abdi
 This java file will basically help in both settings our colors and printing our messages. Our messages can keep the desired current color or they can change, but the key point is all print operations after setting the color using setCurrentColor will use that color. Then there's some overwriting going on, like in println for example. Something noteworthy is the concept of reset - in the 2nd println method on line 67, it defines what the boolean reset does. It's an optional feature given that allows us to reset the color if desired. We will need to implement code for our method print which is similar to println method except it won't append a newline and similar to the print method with the way we will be using the reset. Finally, 2 ColorPrint constructors.
 
+As for the ColorPrinter test, this files job is to run tests for our ColorPrinter and we were provided 1 test. ByteArrayOutputStream was used in that test and we will most likely implementing that class for our other tests so `testPrintlnWithRedColorAndRest()` will serve as a good reference for us.
+
 ## TruffulaOptions.java / TruffulaOptionsTest.java
 RJ 
 `TruffulaOptions.java` is like setting up the different parameters we can have when we call truffula for example we use the arguments `-h` or `-nc` which allows us to see hidden files or print with no color. We also take in a path argument of either what folder we want to explore, or where we want to explore relative to where our terminal is viewing in. It also gives us examples of different ways to construct valid and invalid truffula calls. We have a truffula constructor with private values of root, showhidden, and usecolor. getRoot() returns the root of the directory. we also have a toString() method that overwrites the existing and shows the configged arugments. We also have boolean methods isuseColor() and isShowHidden() which returns whether or not we show hidden files or use color by returning true or not. Towards the end there is a place where we have to implement what argument is passed to use via the console and we have to process it by checking if we use those `-h` or `-nc` flags. `TruffulaOptions.java` tests if we are getting the correct paths or files showing depending on what we call, also asserts if no color is shown if we define it to or not.
 
+<<<<<<< HEAD
+=======
+Abdi
+I quickly noticed the documentation for TruffulaOptions.java is similar, if not some parts the exact same. It reiterates what flags are, a path is and what the expected behavior is. This file has several methods that each serve a specfic actions. getRoot() gets the root directory of our desired path (basically where it starts). isShowHidden() returns true if the hidden files should be displayed and false if not. toString() returns a string of the details of our selected options. isUseColor() returns true if a color should be used and if it's false (a color shouldn't be used), all the output is white. There are 2 constrcutors at the bottom, one already implemented and one we will have to implement (TruffulaOptions). TruffulaOptions job is to make an object based on our given arugments (ex. if hidden files will be shown, if color should be used).
+
+As for the TruffulaOptionsTest file,  
+
+
+>>>>>>> 198a2b2d7ed9e29175aaa2ef1bcf2c0c7717e707
 ## TruffulaPrinter.java / TruffulaPrinterTest.java
 
 
