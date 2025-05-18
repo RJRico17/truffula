@@ -28,7 +28,7 @@ This java file will basically help in both settings our colors and printing our 
 RJ 
 `TruffulaOptions.java` is like setting up the different parameters we can have when we call truffula for example we use the arguments `-h` or `-nc` which allows us to see hidden files or print with no color. We also take in a path argument of either what folder we want to explore, or where we want to explore relative to where our terminal is viewing in. It also gives us examples of different ways to construct valid and invalid truffula calls. We have a truffula constructor with private values of root, showhidden, and usecolor. getRoot() returns the root of the directory. we also have a toString() method that overwrites the existing and shows the configged arugments. We also have boolean methods isuseColor() and isShowHidden() which returns whether or not we show hidden files or use color by returning true or not. Towards the end there is a place where we have to implement what argument is passed to use via the console and we have to process it by checking if we use those `-h` or `-nc` flags. `TruffulaOptions.java` tests if we are getting the correct paths or files showing depending on what we call, also asserts if no color is shown if we define it to or not.
 
-
 ## TruffulaPrinter.java / TruffulaPrinterTest.java
+
 
 ## AlphabeticalFileSorter.java
