@@ -33,7 +33,7 @@ RJ
 Abdi
 I quickly noticed the documentation for TruffulaOptions.java is similar, if not some parts the exact same. It reiterates what flags are, a path is and what the expected behavior is. This file has several methods that each serve a specfic actions. getRoot() gets the root directory of our desired path (basically where it starts). isShowHidden() returns true if the hidden files should be displayed and false if not. toString() returns a string of the details of our selected options. isUseColor() returns true if a color should be used and if it's false (a color shouldn't be used), all the output is white. There are 2 constrcutors at the bottom, one already implemented and one we will have to implement (TruffulaOptions). TruffulaOptions job is to make an object based on our given arugments (ex. if hidden files will be shown, if color should be used).
 
-As for the TruffulaOptionsTest file,  
+As for the TruffulaOptionsTest file, this files job is to run tests for our TrufullaOptions java file and we were provided 1 test. 
 
 
 ## TruffulaPrinter.java / TruffulaPrinterTest.java
