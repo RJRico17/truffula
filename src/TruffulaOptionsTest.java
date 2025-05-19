@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -25,5 +26,18 @@ public class TruffulaOptionsTest {
     assertEquals(directory.getAbsolutePath(), options.getRoot().getAbsolutePath());
     assertTrue(options.isShowHidden());
     assertFalse(options.isUseColor());
+  }
+
+   @Test
+  void tesUnvalidDirectoryIsSet(@TempDir File tempDir) throws FileNotFoundException {
+    // Arrange: Prepare the arguments with the temp directory
+    File directory = new File(tempDir, "subfolder");
+    String directoryPath = directory.getAbsolutePath();
+    String[] args = {"-nc", "-h", directoryPath};
+
+    // Act: Create TruffulaOptions instance
+
+    // Assert: Check that the root directory is set correctly
+    assertThrows(FileNotFoundException.class,()->{TruffulaOptions options = new TruffulaOptions(args)});
   }
 }
