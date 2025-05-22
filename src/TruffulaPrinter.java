@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.PrintStream;
 import java.util.List;
 
@@ -106,7 +107,7 @@ public class TruffulaPrinter {
     // TODO: Implement this!
     // REQUIRED: ONLY use java.io, DO NOT use java.nio
     out.println(this.options.getRoot().toString()+"/");
-
+    printFiles(this.options.getRoot());
 
     // Hints:
     // - Add a recursive helper method
@@ -116,5 +117,15 @@ public class TruffulaPrinter {
 
     out.println("printTree was called!");
     out.println("My options are: " + options);
+  }
+
+  public void printFiles(File root) {
+    File[] files = root.listFiles();
+    for (File file : files) {
+      out.println("   " + file.getName());
+      if (file.isDirectory()) {
+        printFiles(file);
+      }
+    }
   }
 }
