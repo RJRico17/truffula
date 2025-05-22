@@ -12,3 +12,6 @@ private final variable `printStream` on top of the `ColorPrinter.java` file. So 
 printStream, that final private variable that was passed to use when we first created our instance of the printer obj.
 `printStream.print(this.currentColor + message + ConsoleColor.RESET);`
 
+# wave 2:
+So basically
+We create temp variables to hold our booleans and files, `hiddBoolean`,`colorBoolean`, and `rootPath` that will hold our values from string[] args. We use a for i loop ignoring the last index and check if the values equal `-nc` or `-h` respectively and turn booleans into true or false depending on what the args dictate. If the arg does not equal one of those options we throw a `IllegalArgumentException`. We also look at the last index of args[] and check if they DONT equal `-h` or `-nc`, if so we can assume it is the root path. We check the `rootPath` if it either `!.exists()` or `!.isDirectory()` and if they fail meaning the path either does not exist or is not a directory we will throw a `FileNotFoundException`. After we pass all of our variables and args through the checker we assign them to the final variables of the `TruffulaOptions` object
