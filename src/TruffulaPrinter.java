@@ -106,7 +106,7 @@ public class TruffulaPrinter {
   public void printTree() {
     // TODO: Implement this!
     // REQUIRED: ONLY use java.io, DO NOT use java.nio
-    out.println(this.options.getRoot().toString()+"/");
+    out.println(this.options.getRoot().getName()+"/");
     printFiles(this.options.getRoot());
 
     // Hints:
@@ -115,8 +115,8 @@ public class TruffulaPrinter {
     // DO NOT USE SYSTEM.OUT.PRINTLN
     // USE out.println instead (will use your ColorPrinter)
 
-    out.println("printTree was called!");
-    out.println("My options are: " + options);
+    // out.println("printTree was called!");
+    // out.println("My options are: " + options);
   }
   public void printFiles(File root) {
     String indent = "";
