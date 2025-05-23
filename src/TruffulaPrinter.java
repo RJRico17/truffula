@@ -130,7 +130,12 @@ public class TruffulaPrinter {
         out.println(indent+file.getName()+"/");
         printFiles(file,indent);
       }
-      else out.println(indent+file.getName());
+      else {
+        if (file.isHidden()&&this.options.isShowHidden()==true) {
+          out.println(indent+file.getName());
+        }
+        else out.println(indent+file.getName());
+      }
     }
   }
 }
