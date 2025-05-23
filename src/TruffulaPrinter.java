@@ -118,14 +118,19 @@ public class TruffulaPrinter {
     out.println("printTree was called!");
     out.println("My options are: " + options);
   }
-
   public void printFiles(File root) {
+    String indent = "";
+    printFiles(root,indent);
+  }
+  public void printFiles(File root, String indent) {
     File[] files = root.listFiles();
+    indent+="   ";
     for (File file : files) {
-      out.println("   " + file.getName());
       if (file.isDirectory()) {
-        printFiles(file);
+        out.println(indent+file.getName()+"/");
+        printFiles(file,indent);
       }
+      else out.println(indent+file.getName());
     }
   }
 }
