@@ -105,8 +105,8 @@ public class TruffulaOptions  {
     boolean colorBoolean = true;
     File rootPath = null;
     for (int i = 0; i < args.length-1; i++) { // java src/App.java -nc -h src
-      if (args[i]=="-h") hiddBoolean = true;
-      else if (args[i]=="-nc") colorBoolean = false;
+      if (args[i].equals("-h")) hiddBoolean = true;
+      else if (args[i].equals("-nc")) colorBoolean = false;
       // else throw new IllegalArgumentException("Unknown Argument.");
     }
     if ((args[args.length-1]!="-nc")&&(args[args.length-1]!="-h")) {

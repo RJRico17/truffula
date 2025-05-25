@@ -116,7 +116,7 @@ public class TruffulaPrinter {
     // USE out.println instead (will use your ColorPrinter)
 
     // out.println("printTree was called!");
-    // out.println("My options are: " + options);
+     out.println("My options are: " + options);
   }
   public void printFiles(File root) {
     String indent = "";
