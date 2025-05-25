@@ -41,6 +41,9 @@ As for the TruffulaOptionsTest file, this files job is to run tests for our Truf
 RJ
 Looks like `TruffulaPrinter.java` has constructors that allow us to define different options we want for truffula regarding it's actions. Looks like we can define a specific instance of TruffulaPrinter with different options such as one being a default and others where you can define the options you want to give it and will create a specific object with those options. In wave 4 looks like we will implement `printTree()` in this file which looks like will do all the heavy work. `TruffulaPrinterTest.java` looks like it creates a bunch of mock files that mimic a directory so that we can test out our printer, most likely should implement alot of different test cases where we have empty folders full folders no folders all files etc.
 
+Abdi
+TruffulaPrinter.java seems to be one we go back to often, since it contains the method printTree() and the instructions reference that method a couple of times. It also has a couple TrufullaPrinter constructors that take in different combinations of parameters, like options, output stream, and the sequence of colors. The test file for this, TruffulaPrinterTest, has an example directory with example files with the goal of testing what the terminal should produce when we implement our TruffulaPrinter.
+
 ## AlphabeticalFileSorter.java
 
 RJ
