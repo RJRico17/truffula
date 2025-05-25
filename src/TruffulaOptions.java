@@ -109,7 +109,7 @@ public class TruffulaOptions  {
       else if (args[i].equals("-nc")) colorBoolean = false;
       // else throw new IllegalArgumentException("Unknown Argument.");
     }
-    if ((args[args.length-1]!="-nc")&&(args[args.length-1]!="-h")) {
+    if ((!args[args.length-1].equals("-nc"))&&(!args[args.length-1].equals("-h"))) {
       rootPath = new File(args[args.length-1]);
       if (!rootPath.exists()||!rootPath.isDirectory()) {
         throw new FileNotFoundException("Path does not exist or is not a directory.");
