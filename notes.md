@@ -48,3 +48,6 @@ TruffulaPrinter.java seems to be one we go back to often, since it contains the 
 
 RJ
 Oh W this one is pretty simple it just takes an array of files and lists them all in alphabetical order.
+
+Abdi
+This file's job is to simply sort our output alphabetically.
