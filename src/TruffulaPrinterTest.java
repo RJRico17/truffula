@@ -292,4 +292,64 @@ public class TruffulaPrinterTest {
         System.out.print(output);
         assertEquals(expected.toString(), output);
     }
+
+    @Test
+    public void testPrintTree_ExactOutput_Simpler_Alphabetical(@TempDir File tempDir) throws IOException {
+        // Build the example directory structure:
+        // myFolder/
+        //    alpha
+        //    zulu
+        //    yankee
+        //    golf
+        //    kilo
+
+        // Create "myFolder"
+        File myFolder = new File(tempDir, "myFolder");
+        File alpha = new File(myFolder, "alpha.txt");
+        File zulu = new File(myFolder, "zulu.txt");
+        File yankee = new File(myFolder, "yankee.txt");
+        File golf = new File(myFolder, "golf.txt");
+        File kilo = new File(myFolder, "kilo.txt");
+        assertTrue(myFolder.mkdir(), "myFolder should be created");
+        assertTrue(alpha.createNewFile(), "alpha should be created");
+        assertTrue(zulu.createNewFile(), "zulu should be created");
+        assertTrue(yankee.createNewFile(), "yankee should be created");
+        assertTrue(golf.createNewFile(), "golf should be created");
+        assertTrue(kilo.createNewFile(), "kilo should be created");
+
+        // Set up TruffulaOptions with showHidden = false and useColor = true
+        TruffulaOptions options = new TruffulaOptions(myFolder, false, true);
+
+        // Capture output using a custom PrintStream
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(baos);
+
+        // Instantiate TruffulaPrinter with custom PrintStream
+        TruffulaPrinter printer = new TruffulaPrinter(options, printStream);
+
+        // Call printTree (output goes to printStream)
+        printer.printTree();
+
+        // Retrieve printed output
+        String output = baos.toString();
+        String nl = System.lineSeparator();
+
+        // Build expected output with exact colors and indentation
+        ConsoleColor reset = ConsoleColor.RESET;
+        ConsoleColor white = ConsoleColor.WHITE;
+        ConsoleColor purple = ConsoleColor.PURPLE;
+        ConsoleColor yellow = ConsoleColor.YELLOW;
+
+        StringBuilder expected = new StringBuilder();
+        expected.append(white).append("myFolder/").append(nl).append(reset);
+        expected.append(white).append("   alpha.txt").append(nl).append(reset);
+        expected.append(white).append("   golf.txt").append(nl).append(reset);
+        expected.append(white).append("   kilo.txt").append(nl).append(reset);
+        expected.append(white).append("   yankee.txt").append(nl).append(reset);
+        expected.append(white).append("   zulu.txt").append(nl).append(reset);
+
+        // Assert that the output matches the expected output exactly
+        System.out.print(output);
+        assertEquals(expected.toString(), output);
+    }
 }
