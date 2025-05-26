@@ -116,7 +116,7 @@ public class TruffulaPrinter {
     // USE out.println instead (will use your ColorPrinter)
 
     // out.println("printTree was called!");
-    out.println("My options are: " + options);
+    //out.println("My options are: " + options);
   }
   public void printFiles(File root) {
     String indent = "";
@@ -126,7 +126,7 @@ public class TruffulaPrinter {
   public void printFiles(File root, String indent, int currentColorNum) {
     out.println(indent+root.getName()+"/");
     File[] files = AlphabeticalFileSorter.sort(root.listFiles());
-    out.setCurrentColor(this.colorSequence.get(currentColorNum));
+    //out.setCurrentColor(this.colorSequence.get(currentColorNum));
     indent+="   ";
 
     if (currentColorNum==colorSequence.size()-1)
@@ -138,6 +138,15 @@ public class TruffulaPrinter {
     }
 
     for (File file : files) {
+
+      if (this.options.isUseColor() == true)
+      {
+        out.setCurrentColor(this.colorSequence.get(currentColorNum)); // passes COLORS test (#1 passes)
+      } else  if (this.options.isUseColor() == false)
+      {
+        out.setCurrentColor(this.colorSequence.get(0));         // passes NO COLOR test (#2 & 3 pass)
+      }
+
       if (file.isDirectory()) {
         printFiles(file, indent, currentColorNum);
       }
