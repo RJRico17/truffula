@@ -106,7 +106,7 @@ public class TruffulaPrinter {
   public void printTree() {
     // TODO: Implement this!
     // REQUIRED: ONLY use java.io, DO NOT use java.nio
-    out.setCurrentColor(this.colorSequence.get(0));
+    out.setCurrentColor(this.colorSequence.get(0)); // set /src to white
     printFiles(this.options.getRoot());
 
     // Hints:
@@ -120,19 +120,26 @@ public class TruffulaPrinter {
   }
   public void printFiles(File root) {
     String indent = "";
-    int i = 0;
-    printFiles(root,indent,i);
+    int colorNum = 0;
+    printFiles(root, indent, colorNum);
   }
-  public void printFiles(File root, String indent, int colorCycle) {
+  public void printFiles(File root, String indent, int currentColorNum) {
     out.println(indent+root.getName()+"/");
     File[] files = AlphabeticalFileSorter.sort(root.listFiles());
-    if (colorCycle==colorSequence.size()-1) colorCycle=0;
-    else colorCycle++;
-    out.setCurrentColor(this.colorSequence.get(colorCycle));
+    out.setCurrentColor(this.colorSequence.get(currentColorNum));
     indent+="   ";
+
+    if (currentColorNum==colorSequence.size()-1)
+    {
+      currentColorNum=0;
+    } else
+    {
+      currentColorNum++;
+    }
+
     for (File file : files) {
       if (file.isDirectory()) {
-        printFiles(file,indent,colorCycle);
+        printFiles(file, indent, currentColorNum);
       }
       else {
         if (this.options.isShowHidden()==true) {
