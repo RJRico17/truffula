@@ -107,7 +107,6 @@ public class TruffulaPrinter {
     // TODO: Implement this!
     // REQUIRED: ONLY use java.io, DO NOT use java.nio
     out.setCurrentColor(this.colorSequence.get(0));
-    out.println(this.options.getRoot().getName()+"/");
     printFiles(this.options.getRoot());
 
     // Hints:
@@ -125,6 +124,7 @@ public class TruffulaPrinter {
     printFiles(root,indent,i);
   }
   public void printFiles(File root, String indent, int colorCycle) {
+    out.println(indent+root.getName()+"/");
     File[] files = AlphabeticalFileSorter.sort(root.listFiles());
     if (colorCycle==colorSequence.size()-1) colorCycle=0;
     else colorCycle++;
@@ -132,12 +132,11 @@ public class TruffulaPrinter {
     indent+="   ";
     for (File file : files) {
       if (file.isDirectory()) {
-        out.println(indent+file.getName()+"/", false);
         printFiles(file,indent,colorCycle);
       }
       else {
         if (this.options.isShowHidden()==true) {
-            out.println(indent+file.getName(), false);    // show everything
+            out.println(indent+file.getName(), true);    // show everything
         } else if (this.options.isShowHidden()==false) {
           if (!file.isHidden()) {
             out.println(indent+file.getName()); // show only non-hidden files
