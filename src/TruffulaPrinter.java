@@ -106,6 +106,7 @@ public class TruffulaPrinter {
   public void printTree() {
     // TODO: Implement this!
     // REQUIRED: ONLY use java.io, DO NOT use java.nio
+    out.setCurrentColor(this.colorSequence.get(0));
     out.println(this.options.getRoot().getName()+"/");
     printFiles(this.options.getRoot());
 
@@ -125,13 +126,13 @@ public class TruffulaPrinter {
   }
   public void printFiles(File root, String indent, int colorCycle) {
     File[] files = AlphabeticalFileSorter.sort(root.listFiles());
-    indent+="   ";
+    if (colorCycle==colorSequence.size()-1) colorCycle=0;
+    else colorCycle++;
     out.setCurrentColor(this.colorSequence.get(colorCycle));
+    indent+="   ";
     for (File file : files) {
       if (file.isDirectory()) {
         out.println(indent+file.getName()+"/", false);
-        if (colorCycle==this.colorSequence.size()) colorCycle=0;
-        else colorCycle++;
         printFiles(file,indent,colorCycle);
       }
       else {
