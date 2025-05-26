@@ -126,16 +126,17 @@ public class TruffulaPrinter {
   public void printFiles(File root, String indent, int colorCycle) {
     File[] files = AlphabeticalFileSorter.sort(root.listFiles());
     indent+="   ";
+    out.setCurrentColor(this.colorSequence.get(colorCycle));
     for (File file : files) {
       if (file.isDirectory()) {
-        out.println(indent+file.getName()+"/");
+        out.println(indent+file.getName()+"/", false);
         if (colorCycle==this.colorSequence.size()) colorCycle=0;
         else colorCycle++;
         printFiles(file,indent,colorCycle);
       }
       else {
         if (this.options.isShowHidden()==true) {
-            out.println(indent+file.getName());    // show everything
+            out.println(indent+file.getName(), false);    // show everything
         } else if (this.options.isShowHidden()==false) {
           if (!file.isHidden()) {
             out.println(indent+file.getName()); // show only non-hidden files
