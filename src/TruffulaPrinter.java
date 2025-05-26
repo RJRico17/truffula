@@ -144,17 +144,29 @@ public class TruffulaPrinter {
         out.setCurrentColor(this.colorSequence.get(currentColorNum)); // passes COLORS test (#1 passes)
       } else  if (this.options.isUseColor() == false)
       {
-        out.setCurrentColor(this.colorSequence.get(0));         // passes NO COLOR test (#2 & 3 pass)
+        out.setCurrentColor(this.colorSequence.get(0));         // passes NO COLOR test (#2, #3, #4 pass)
       }
 
       if (file.isDirectory()) {
         printFiles(file, indent, currentColorNum);
       }
       else {
-        if (this.options.isShowHidden()==true) {
-            out.println(indent+file.getName(), true);    // show everything
-        } else if (this.options.isShowHidden()==false) {
-          if (!file.isHidden()) {
+        if (this.options.isShowHidden()==true && this.options.isUseColor()==true) { // COLOR, SHOW HIDDEN
+            out.println(indent+file.getName());    // show everything
+        }
+        else if (this.options.isShowHidden()==false && this.options.isUseColor()==true) // COLOR, NO HIDDEN
+        {
+          if (!file.isHidden())
+          {
+            out.println(indent+file.getName()); // show only non-hidden files
+          }
+        } else if (this.options.isShowHidden() == true && this.options.isUseColor()==false) // NO COLOR, SHOW HIDDEN
+        {
+          out.println(indent+file.getName());    // show everything
+        } else if (this.options.isShowHidden()==false && this.options.isUseColor()==false) // NO COLOR, NO HIDDEN
+        {
+          if (!file.isHidden())
+          {
             out.println(indent+file.getName()); // show only non-hidden files
           }
         }
