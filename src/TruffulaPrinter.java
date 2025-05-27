@@ -126,7 +126,6 @@ public class TruffulaPrinter {
   public void printFiles(File root, String indent, int currentColorNum) {
     out.println(indent+root.getName()+"/");
     File[] files = AlphabeticalFileSorter.sort(root.listFiles());
-    //out.setCurrentColor(this.colorSequence.get(currentColorNum));
     indent+="   ";
 
     if (currentColorNum==colorSequence.size()-1)
@@ -139,31 +138,25 @@ public class TruffulaPrinter {
 
     for (File file : files) {
 
+      // if color will be used
       if (this.options.isUseColor() == true)
       {
-        out.setCurrentColor(this.colorSequence.get(currentColorNum)); // passes COLORS test (#1 passes)
+        out.setCurrentColor(this.colorSequence.get(currentColorNum));
       } else  if (this.options.isUseColor() == false)
       {
-        out.setCurrentColor(this.colorSequence.get(0));         // passes NO COLOR test (#2, #3, #4 pass)
+        out.setCurrentColor(this.colorSequence.get(0));
       }
 
       if (file.isDirectory()) {
         printFiles(file, indent, currentColorNum);
       }
       else {
-        if (this.options.isShowHidden()==true && this.options.isUseColor()==true) { // COLOR, SHOW HIDDEN
+        // use color + show hidden OR no color + show hidden
+        if ((this.options.isShowHidden()==true && this.options.isUseColor()==true) || (this.options.isShowHidden() == true && this.options.isUseColor()==false)) {
             out.println(indent+file.getName());    // show everything
         }
-        else if (this.options.isShowHidden()==false && this.options.isUseColor()==true) // COLOR, NO HIDDEN
-        {
-          if (!file.isHidden())
-          {
-            out.println(indent+file.getName()); // show only non-hidden files
-          }
-        } else if (this.options.isShowHidden() == true && this.options.isUseColor()==false) // NO COLOR, SHOW HIDDEN
-        {
-          out.println(indent+file.getName());    // show everything
-        } else if (this.options.isShowHidden()==false && this.options.isUseColor()==false) // NO COLOR, NO HIDDEN
+        // use color + no hidden OR no color + no hidden
+        else if ((this.options.isShowHidden()==false && this.options.isUseColor()==true) || (this.options.isShowHidden()==false && this.options.isUseColor()==false)) 
         {
           if (!file.isHidden())
           {

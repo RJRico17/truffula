@@ -348,7 +348,7 @@ public class TruffulaPrinterTest {
     }
 
     @Test
-    public void testPrintTree_ExactOutput_WithCustomPrintStream_ShowHidden_UseColor(@TempDir File tempDir) throws IOException {
+    public void testPrintTree_ExactOutput_ShowHidden_UseColor(@TempDir File tempDir) throws IOException {
         // Build the example directory structure:
         // myFolder/
         //    .hidden.txt
@@ -398,7 +398,7 @@ public class TruffulaPrinterTest {
         cat.createNewFile();
         dog.createNewFile();
 
-        // Set up TruffulaOptions with showHidden = false and useColor = true
+        // Set up TruffulaOptions with showHidden = true and useColor = true
         TruffulaOptions options = new TruffulaOptions(myFolder, true, true);
 
         // Capture output using a custom PrintStream
@@ -439,7 +439,7 @@ public class TruffulaPrinterTest {
     }
 
     @Test
-    public void testPrintTree_ExactOutput_WithCustomPrintStream_ShowHiddenNoColor(@TempDir File tempDir) throws IOException {
+    public void testPrintTree_ExactOutput_ShowHidden_NoColor(@TempDir File tempDir) throws IOException {
         // Build the example directory structure:
         // myFolder/
         //    .hidden.txt
@@ -489,7 +489,7 @@ public class TruffulaPrinterTest {
         cat.createNewFile();
         dog.createNewFile();
 
-        // Set up TruffulaOptions with showHidden = false and useColor = true
+        // Set up TruffulaOptions with showHidden = true and useColor = true
         TruffulaOptions options = new TruffulaOptions(myFolder, true, false);
 
         // Capture output using a custom PrintStream
@@ -528,7 +528,7 @@ public class TruffulaPrinterTest {
     }
 
     @Test
-    public void testPrintTree_ExactOutput_WithCustomPrintStream_HideHiddenNoColor(@TempDir File tempDir) throws IOException {
+    public void testPrintTree_ExactOutput_HideHidden_NoColor(@TempDir File tempDir) throws IOException {
         // Build the example directory structure:
         // myFolder/
         //    .hidden.txt
@@ -616,7 +616,7 @@ public class TruffulaPrinterTest {
     }
 
     @Test
-    public void testPrintTree_ExactOutput_WithCustomPrintStream_HideHiddenUseColor(@TempDir File tempDir) throws IOException {
+    public void testPrintTree_ExactOutput_HideHidden_UseColor(@TempDir File tempDir) throws IOException {
         // Build the example directory structure:
         // myFolder/
         //    .hidden.txt
@@ -706,7 +706,7 @@ public class TruffulaPrinterTest {
     }
 
     @Test
-    public void testPrintTree_ExactOutput_WithCustomPrintStreamHiddenImageFileInSrcFolder(@TempDir File tempDir) throws IOException {
+    public void testPrintTree_ExactOutput_HiddenImageFileInSrcFolder(@TempDir File tempDir) throws IOException {
         // Build the example directory structure:
         // myFolder/
         //    .hidden.txt
@@ -760,7 +760,7 @@ public class TruffulaPrinterTest {
         cat.createNewFile();
         dog.createNewFile();
 
-        // Set up TruffulaOptions with showHidden = false and useColor = true
+        // Set up TruffulaOptions with showHidden = true and useColor = true
         TruffulaOptions options = new TruffulaOptions(myFolder, true, true);
 
         // Capture output using a custom PrintStream
@@ -802,7 +802,7 @@ public class TruffulaPrinterTest {
     }
 
     @Test
-    public void testPrintTree_ExactOutput_WithCustomPrintStreamHiddenImageFileInSubFolder(@TempDir File tempDir) throws IOException {
+    public void testPrintTree_ExactOutput_HiddenImageFileInSubFolder(@TempDir File tempDir) throws IOException {
         // Build the example directory structure:
         // myFolder/
         //    .hidden.txt
@@ -856,7 +856,7 @@ public class TruffulaPrinterTest {
         cat.createNewFile();
         dog.createNewFile();
 
-        // Set up TruffulaOptions with showHidden = false and useColor = true
+        // Set up TruffulaOptions with showHidden = true and useColor = true
         TruffulaOptions options = new TruffulaOptions(myFolder, true, true);
 
         // Capture output using a custom PrintStream
@@ -898,7 +898,7 @@ public class TruffulaPrinterTest {
     }
 
     @Test
-    public void testPrintTree_ExactOutput_WithCustomPrintStreamHiddenNotesFileInSrcFolder(@TempDir File tempDir) throws IOException {
+    public void testPrintTree_ExactOutput_HiddenNotesFileInSrcFolder(@TempDir File tempDir) throws IOException {
         // Build the example directory structure:
         // myFolder/
         //    .hidden.txt
@@ -952,7 +952,7 @@ public class TruffulaPrinterTest {
         cat.createNewFile();
         dog.createNewFile();
 
-        // Set up TruffulaOptions with showHidden = false and useColor = true
+        // Set up TruffulaOptions with showHidden = true and useColor = true
         TruffulaOptions options = new TruffulaOptions(myFolder, true, true);
 
         // Capture output using a custom PrintStream
@@ -994,7 +994,7 @@ public class TruffulaPrinterTest {
     }
 
     @Test
-    public void testPrintTree_ExactOutput_WithCustomPrintStreamHiddenNotesFileInSubFolder(@TempDir File tempDir) throws IOException {
+    public void testPrintTree_ExactOutput_HiddenNotesFileInSubFolder(@TempDir File tempDir) throws IOException {
         // Build the example directory structure:
         // myFolder/
         //    .hidden.txt
@@ -1049,7 +1049,7 @@ public class TruffulaPrinterTest {
         cat.createNewFile();
         dog.createNewFile();
 
-        // Set up TruffulaOptions with showHidden = false and useColor = true
+        // Set up TruffulaOptions with showHidden = true and useColor = true
         TruffulaOptions options = new TruffulaOptions(myFolder, true, true);
 
         // Capture output using a custom PrintStream
@@ -1091,7 +1091,7 @@ public class TruffulaPrinterTest {
     }
 
         @Test
-    public void testPrintTree_ExactOutput_WithCustomPrintStreamHiddenTextFileInSubFolder(@TempDir File tempDir) throws IOException {
+    public void testPrintTree_ExactOutput_HiddenTextFileInSubFolder(@TempDir File tempDir) throws IOException {
         // Build the example directory structure:
         // myFolder/
         //    .hidden.txt
@@ -1146,7 +1146,7 @@ public class TruffulaPrinterTest {
         cat.createNewFile();
         dog.createNewFile();
 
-        // Set up TruffulaOptions with showHidden = false and useColor = true
+        // Set up TruffulaOptions with showHidden = true and useColor = true
         TruffulaOptions options = new TruffulaOptions(myFolder, true, true);
 
         // Capture output using a custom PrintStream
